@@ -4,7 +4,7 @@ let dishes = [
     'price': 12.99,
     'image': './assets/img/summer_roll.jpg',
     'description':
-      'Frisches Gemüse mit süß-sauerer Soße und Hühnchen, eingewickelt in Reispapier',
+      'Sommerrolle mit Reisnudeln, geriebenen Möhren, Gurke, Mango, Kräutern, Hoisinsauce und Zutat nach Wahl',
   },
 ];
 

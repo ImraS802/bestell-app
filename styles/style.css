@@ -1,3 +1,18 @@
-h1 {
-    color: red;
+.content_limitation {
+    display: flex;
+    justify-content: center;
+    background-color: #ff8000;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.logo {
+    width: auto;
+    height: 50px;
 }
