@@ -1,0 +1,20 @@
+{
+  "name": "bestell-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImraS802/bestell-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImraS802/bestell-app/issues"
+  },
+  "homepage": "https://github.com/ImraS802/bestell-app#readme"
+}
