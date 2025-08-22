@@ -46,17 +46,17 @@ main {
 
 .hero_text_overlay {
     position: absolute;
-    bottom: 20px;
+    top: 110px;
 }
 
 .hero_img_split {
     background-image: url(../assets/img/hero.jpg);
     background-position: center bottom;
     background-size: cover;
-    height: 80px;
+    height: 70px;
     /* bottom strip */
     width: 100%;
-    margin-top: 250px;
+    margin-top: 270px;
     /* creates overlap effect */
 }
 
@@ -77,10 +77,23 @@ main {
 
 h1 {
     margin: 40px 0 10px 10px;
+    padding-top: 10px;
+    font-size: 26px;
 }
 
 h2 {
-    margin-left: 10px;
+    margin: 190px 0 0 10px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.navigation_links {
+    display: flex;
+    gap: 20px;
 }
 
 .rating {
