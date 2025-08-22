@@ -23,22 +23,3 @@ let mainDishes = [
       'Reisbandnudeln mit hausgemachter Sauce, frischen Kräutern, Zutat nach Wahl und verschiedenen Toppings',
   },
 ];
-
-let basket = [];
-
-function init() {
-  rendermainDishes();
-}
-
-function rendermainDishes() {
-  let mainDishRef = document.getElementById('content');
-  mainDishRef.innerHTML = '';
-
-  for (let i = 0; i < mainDishes.length; i++) {
-    renderSingleMainDish(mainDishRef, i);
-  }
-}
-
-function renderSingleMainDish(mainDishRef, index) {
-  mainDishRef.innerHTML += getHTMLForMainDishTemplate(index);
-}
