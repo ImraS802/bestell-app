@@ -34,6 +34,10 @@ main {
     align-items: flex-start;
 }
 
+.content {
+    width: 100%;
+}
+
 .hero_img {
     position: relative;
     background-image: url(../assets/img/hero.jpg);
@@ -99,6 +103,11 @@ h2 {
 .rating {
     margin-left: 10px;
     color: #ff8000;
+}
+
+.price {
+    color: #ff8000;
+    font-weight: bold;
 }
 
 .content_footer {
