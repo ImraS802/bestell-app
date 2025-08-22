@@ -7,7 +7,7 @@
 header {
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 5px 10px;
     width: 100%;
     max-width: 1440px;
 }
@@ -37,11 +37,27 @@ main {
 .hero_img {
     position: relative;
     background-image: url(../assets/img/hero.jpg);
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     height: 150px;
     width: 100%;
+}
+
+.hero_text_overlay {
+    position: absolute;
+    bottom: 20px;
+}
+
+.hero_img_split {
+    background-image: url(../assets/img/hero.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    height: 80px;
+    /* bottom strip */
+    width: 100%;
+    margin-top: 250px;
+    /* creates overlap effect */
 }
 
 .bowl_img_middle {
@@ -61,6 +77,15 @@ main {
 
 h1 {
     margin: 40px 0 10px 10px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+.rating {
+    margin-left: 10px;
+    color: #ff8000;
 }
 
 .content_footer {
