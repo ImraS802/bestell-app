@@ -3,7 +3,7 @@ let mainDishes = [
     'name': 'Sommer Rollen',
     'price': 6.5,
     'description':
-      'Sommerrolle mit Reisnudeln, geriebenen Möhren, Gurke, Mango, Kräutern, Hoisinsauce und Zutat nach Wahl',
+      'Sommerrolle mit Reisnudeln, geriebenen Möhren, Gurke, Mango, Kräutern, Hoisinsauce und Ingwer',
   },
   {
     'name': 'Banh Mi Xiu Mai',
@@ -20,6 +20,6 @@ let mainDishes = [
     'name': 'Pho Tron Hanoi',
     'price': 13.5,
     'description':
-      'Reisbandnudeln mit hausgemachter Sauce, frischen Kräutern, Zutat nach Wahl und verschiedenen Toppings',
+      'Reisbandnudeln mit hausgemachter Sauce, frischen Kräutern, Tofu und saisonalen Toppings',
   },
 ];

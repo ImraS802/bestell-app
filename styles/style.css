@@ -23,7 +23,18 @@ header {
 }
 
 main {
-    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    /* space between content and cart */
+    width: 100%;
+    max-width: 1440px;
+    /* keep limitation on big screens */
+    margin: 0 auto;
+    /* center inside page */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .main_content_limitation {
@@ -32,10 +43,31 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-right: 300px;
 }
 
 .content {
-    width: 100%;
+    flex: 3;
+}
+
+.shopping_cart {
+    position: fixed;
+    top: 64px;
+    /* height of your header (adjust if needed) */
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    min-width: 250px;
+    max-width: 350px;
+
+    border: 1px solid #E7E7E7;
+    padding: 15px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    background: #fff;
+    /* scroll if content inside is taller */
+    z-index: 1000;
+
 }
 
 .hero_img {
