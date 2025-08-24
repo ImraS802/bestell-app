@@ -1,11 +1,10 @@
 // TODO: add and remove fncts
 
-// TODO Basket fnct
-
 let basket = [];
 
 function init() {
   renderMainDishes();
+  renderBasket();
 }
 
 function renderMainDishes() {
@@ -19,4 +18,28 @@ function renderMainDishes() {
 
 function renderSingleMainDish(mainDishRef, index) {
   mainDishRef.innerHTML += getHTMLForMainDishTemplate(index);
+}
+
+function addProductToBasket(indexMainDish) {
+  basket.push(indexMainDish);
+  renderBasket();
+}
+
+function renderBasket() {
+  let shoppingCartContentRef = document.getElementById('shopping_cart');
+  shoppingCartContentRef.innerHTML = `<h2 class="headline_shopping_cart">Warenkorb</h2>`; // headline should always be displayed
+
+  if (basket.length === 0) {
+    shoppingCartContentRef.innerHTML += getHTMLForShoppingCartEmpty();
+  } else {
+    shoppingCartContentRef.innerHTML += `<div class="shopping_cart_full"></div>`;
+    let fullCartRef = shoppingCartContentRef.querySelector(
+      '.shopping_cart_full'
+    );
+    // loop through basket
+    for (let i = 0; i < basket.length; i++) {
+      let dishIndex = basket[i];
+      fullCartRef.innerHTML += getHTMLForShoppingCartFull(dishIndex);
+    }
+  }
 }

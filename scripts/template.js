@@ -3,24 +3,36 @@ function getHTMLForMainDishTemplate(indexMainDish) {
     <div class="food_card">
         <div class="name_plus_btn_container">
             <h3 class="name">${mainDishes[indexMainDish].name}</h3>
-            <button class="add_to_cart_btn"><img class="plus_symbol" src="../assets/icons/plus.svg"
-                    alt="Bookstore logo" /></button>
+            <button class="add_to_basket_btn" onclick="addProductToBasket${indexMainDish}"><img class="plus_symbol" src="../assets/icons/plus.svg"
+                    alt="Fuege Produkt hinzu Pluszeichen" /></button>
         </div>
         <div class="description">${mainDishes[indexMainDish].description}</div>
         <div class="price">${mainDishes[indexMainDish].price.toFixed(2)} €</div>
     </div>`;
 }
 
-function getHTMLForShoppingCart() {
+function getHTMLForShoppingCartEmpty() {
   return `
-<h2>Warenkorb</h2>
     <div class="shopping_cart_empty">
-        <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Plus Zeichen" />
         <h2>Fülle deinen Warenkorb</h2>
         <p>Dein Warenkorb ist leer</p>
-        <div class="shopping_cart_full">
+    </div>
+`;
+}
+
+function getHTMLForShoppingCartFull(indexMainDish) {
+  return `
+    <div class="shopping_cart_full">
         <div>${mainDishes[indexMainDish].name}</div>
-        <div></div>
+        <div>
+            <button class="delete_btn"><img class="plus_symbol" src="../assets/icons/minus.svg"
+                    alt="Entfernen Button" /></button>
+            <span class="display_amount" id="amount_product"></span>
+            <button class="add_btn"><img class="plus_symbol" src="../assets/icons/plus.svg"
+                    alt="Hinzufuegen Button" /></button>
         </div>
+    </div>
+    <span class="display_price" id="price_product"></span>
+    <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
     </div>`;
 }
