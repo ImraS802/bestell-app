@@ -89,6 +89,11 @@ h2 {
     margin: 200px 0 20px 10px;
 }
 
+.name_plus_btn_container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .navigation {
     display: flex;
     align-items: center;
