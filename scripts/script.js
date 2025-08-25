@@ -27,7 +27,7 @@ function addProductToBasket(indexMainDish) {
 
 function renderBasket() {
   let shoppingCartContentRef = document.getElementById('shopping_cart');
-  shoppingCartContentRef.innerHTML = `<h2 class="headline_shopping_cart">Warenkorb</h2>`; // headline should always be displayed
+  shoppingCartContentRef.innerHTML = '';
 
   if (basket.length === 0) {
     shoppingCartContentRef.innerHTML += getHTMLForShoppingCartEmpty();

@@ -14,7 +14,8 @@ function getHTMLForMainDishTemplate(indexMainDish) {
 function getHTMLForShoppingCartEmpty() {
   return `
     <div class="shopping_cart_empty">
-        <h2>Fülle deinen Warenkorb</h2>
+        <img class="shopping_cart_img" src="../assets/icons/shopping-basket.png" alt="Warenkorb Icon" />
+        <p class="fill_empty_basket_headline">Fülle deinen Warenkorb</p>
         <p>Dein Warenkorb ist leer</p>
     </div>
 `;
@@ -23,6 +24,7 @@ function getHTMLForShoppingCartEmpty() {
 function getHTMLForShoppingCartFull(indexMainDish) {
   return `
     <div class="shopping_cart_full">
+      <h2 class="headline_shopping_cart">Warenkorb</h2>
         <div>${mainDishes[indexMainDish].name}</div>
         <div>
             <button class="delete_btn"><img class="plus_symbol" src="../assets/icons/minus.svg"
