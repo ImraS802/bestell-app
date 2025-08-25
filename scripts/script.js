@@ -6,6 +6,7 @@ let cartAmounts = [];
 
 function init() {
   renderMainDishes();
+  renderDessertDishes();
   renderShoppingCart();
 }
 
@@ -19,12 +20,16 @@ function renderMainDishes() {
 }
 
 function renderSingleMainDish(mainDishRef, index) {
-  mainDishRef.innerHTML += getHTMLForMainDishTemplate(index);
+  mainDishRef.innerHTML += getHTMLForDishTemplate(index);
 }
 
-function getProductFromPlus() {
-  let value = document.getElementById('addToBasket');
-  return value;
+function renderDessertDishes() {
+  let dessertDishRef = document.getElementById('dessert_content');
+  dessertDishRef.innerHTML = '';
+
+  for (let i = 0; i < dessertDishes.length; i++) {
+    dessertDishRef.innerHTML += getHTMLForDessertTemplate(i);
+  }
 }
 
 function addProductToBasket(indexMainDish) {
@@ -42,10 +47,19 @@ function addProductToBasket(indexMainDish) {
   renderShoppingCart();
 }
 
-// function getProductIndex(dish) {
-//   let index = cartMenus.indexOf(dish.name);
-//   return index;
-// }
+function addDessertToBasket(indexDessert) {
+  let dish = dessertDishes[indexDessert];
+  let index = cartMenus.indexOf(dish.name);
+
+  if (index === -1) {
+    cartMenus.push(dish.name);
+    cartPrices.push(dish.price);
+    cartAmounts.push(1);
+  } else {
+    cartAmounts[index] += 1;
+  }
+  renderShoppingCart();
+}
 
 function renderShoppingCart() {
   let cartDiv = document.getElementById('shopping_cart');
@@ -60,13 +74,14 @@ function renderShoppingCart() {
 
   let subtotal = 0;
   let deliveryFee = 5.0;
-  let total = subtotal + deliveryFee;
 
   for (let i = 0; i < cartMenus.length; i++) {
     let totalPrice = (cartPrices[i] * cartAmounts[i]).toFixed(2);
     subtotal += cartPrices[i] * cartAmounts[i];
     cartDiv.innerHTML += getHTMLForShoppingCartFull(i, totalPrice);
   }
+
+  let total = subtotal + deliveryFee;
 
   cartDiv.innerHTML += `
   <div class="cart_summary">

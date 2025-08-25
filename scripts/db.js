@@ -23,3 +23,27 @@ let mainDishes = [
       'Reisbandnudeln mit hausgemachter Sauce, frischen Kräutern, Tofu und saisonalen Toppings',
   },
 ];
+
+let dessertDishes = [
+  {
+    'name': 'Banh Chuoi Nep',
+    'price': 5.99,
+    'description': 'Gedämpfter Klebreis-Kuchen mit Bananen',
+  },
+  {
+    'name': 'Hausgemachte Creme-Karamel',
+    'price': 4.5,
+    'description': 'Mit karamellisierter Sauce, Obst und Kokosmilch',
+  },
+  {
+    'name': 'Banh Khoai Mon',
+    'price': 6.99,
+    'description': 'Gedämpfter Klebreis-Kuchen mit Mango und Schokosoße',
+  },
+  {
+    'name': 'Che Tapioka Pudding mit Banane',
+    'price': 8.5,
+    'description':
+      'Süßer Kokospudding mit Bananenstückchen, angedickt mit durchsichtigen Perlen aus Tapioka',
+  },
+];

@@ -33,17 +33,15 @@ main {
     /* keep limitation on big screens */
     margin: 0 auto;
     /* center inside page */
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: #fff;
 }
 
 .main_content_limitation {
-    width: 100%;
+    flex: 1;
     max-width: 1440px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-right: 300px;
+    align-items: stretch;
 }
 
 .content {
@@ -148,7 +146,7 @@ main {
     top: 110px;
 }
 
-.hero_img_split {
+.hero_img_split_1 {
     background-image: url(../assets/img/hero.jpg);
     background-position: center bottom;
     background-size: cover;
@@ -157,6 +155,15 @@ main {
     width: 100%;
     margin-top: 270px;
     /* creates overlap effect */
+}
+
+.hero_img_split_2 {
+    background-image: url(../assets/img/hero_2.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    height: 70px;
+    width: 100vw;
+    margin-top: 40px;
 }
 
 .bowl_img_middle {
@@ -182,6 +189,10 @@ h1 {
 
 h2 {
     margin: 200px 0 20px 10px;
+}
+
+.dessert_headline {
+    margin-top: 40px;
 }
 
 .name_plus_btn_container {
