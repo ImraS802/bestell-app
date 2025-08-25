@@ -23,19 +23,18 @@ function getHTMLForShoppingCartEmpty() {
 
 function getHTMLForShoppingCartFull(i, totalPrice) {
   return `
-    <h2 class="headline_shopping_cart">Warenkorb</h2>
     <div class="shopping_cart_full">
-        <div>${cartMenus[i]}</div>
-        <div>
+        <div class="names_shopping_cart">${cartMenus[i]}</div>
+        <div class="amount_price">
             <button class="delete_btn" onclick="decreaseAmount(${i})"><img class="plus_symbol" src="../assets/icons/minus.svg"
                     alt="Entfernen Button" /></button>
             <span class="display_amount" id="amount_product">${cartAmounts[i]}</span>
             <button class="add_btn" onclick="increaseAmount(${i})"><img class="plus_symbol" src="../assets/icons/plus.svg"
                     alt="Hinzufuegen Button" /></button>
-        </div>
     <span class="display_price" id="price_product">${totalPrice}</span>
      <button onclick="removeItem(${i})">
      <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
      </button>
+     </div>
     </div>`;
 }

@@ -56,10 +56,34 @@ function renderShoppingCart() {
     return;
   }
 
+  cartDiv.innerHTML = '<h2 class="headline_shopping_cart">Warenkorb</h2>';
+
+  let subtotal = 0;
+  let deliveryFee = 5.0;
+  let total = subtotal + deliveryFee;
+
   for (let i = 0; i < cartMenus.length; i++) {
     let totalPrice = (cartPrices[i] * cartAmounts[i]).toFixed(2);
+    subtotal += cartPrices[i] * cartAmounts[i];
     cartDiv.innerHTML += getHTMLForShoppingCartFull(i, totalPrice);
   }
+
+  cartDiv.innerHTML += `
+  <div class="cart_summary">
+      <div class="cart_subtotal">
+        <span>Zwischensumme:</span>
+        <span>${subtotal.toFixed(2)} €</span>
+      </div>
+      <div class="cart_delivery">
+        <span>Lieferkosten:</span>
+        <span>${deliveryFee.toFixed(2)} €</span>
+      </div>
+    </div>
+    <div class="cart_total">
+      <span>Gesamt:</span>
+      <span>${total.toFixed(2)} €</span>
+    </div>
+  `;
 }
 
 function increaseAmount(i) {
