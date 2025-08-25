@@ -1,10 +1,12 @@
 // TODO: add and remove fncts
 
-let basket = [];
+let cartMenus = [];
+let cartPrices = [];
+let cartAmounts = [];
 
 function init() {
   renderMainDishes();
-  renderBasket();
+  renderShoppingCart();
 }
 
 function renderMainDishes() {
@@ -20,26 +22,63 @@ function renderSingleMainDish(mainDishRef, index) {
   mainDishRef.innerHTML += getHTMLForMainDishTemplate(index);
 }
 
-function addProductToBasket(indexMainDish) {
-  basket.push(indexMainDish);
-  renderBasket();
+function getProductFromPlus() {
+  let value = document.getElementById('addToBasket');
+  return value;
 }
 
-function renderBasket() {
-  let shoppingCartContentRef = document.getElementById('shopping_cart');
-  shoppingCartContentRef.innerHTML = '';
+function addProductToBasket(indexMainDish) {
+  // indexMainDish comes from template.js
+  let dish = mainDishes[indexMainDish];
+  let index = cartMenus.indexOf(dish.name);
 
-  if (basket.length === 0) {
-    shoppingCartContentRef.innerHTML += getHTMLForShoppingCartEmpty();
+  if (index === -1) {
+    cartMenus.push(dish.name);
+    cartPrices.push(dish.price);
+    cartAmounts.push(1);
   } else {
-    shoppingCartContentRef.innerHTML += `<div class="shopping_cart_full"></div>`;
-    let fullCartRef = shoppingCartContentRef.querySelector(
-      '.shopping_cart_full'
-    );
-    // loop through basket
-    for (let i = 0; i < basket.length; i++) {
-      let dishIndex = basket[i];
-      fullCartRef.innerHTML += getHTMLForShoppingCartFull(dishIndex);
-    }
+    cartAmounts[index] += 1;
   }
+  renderShoppingCart();
+}
+
+// function getProductIndex(dish) {
+//   let index = cartMenus.indexOf(dish.name);
+//   return index;
+// }
+
+function renderShoppingCart() {
+  let cartDiv = document.getElementById('shopping_cart');
+  cartDiv.innerHTML = '';
+
+  if (cartMenus.length === 0) {
+    cartDiv.innerHTML = getHTMLForShoppingCartEmpty();
+    return;
+  }
+
+  for (let i = 0; i < cartMenus.length; i++) {
+    let totalPrice = (cartPrices[i] * cartAmounts[i]).toFixed(2);
+    cartDiv.innerHTML += getHTMLForShoppingCartFull(i, totalPrice);
+  }
+}
+
+function increaseAmount(i) {
+  cartAmounts[i]++;
+  renderShoppingCart();
+}
+
+function decreaseAmount(i) {
+  cartAmounts[i]--;
+  if (cartAmounts[i] <= 0) {
+    removeItem(i);
+  } else {
+    renderShoppingCart();
+  }
+}
+
+function removeItem(i) {
+  cartMenus.splice(i, 1);
+  cartPrices.splice(i, 1);
+  cartAmounts.splice(i, 1);
+  renderShoppingCart();
 }

@@ -1,7 +1,7 @@
 let mainDishes = [
   {
     'name': 'Sommer Rollen',
-    'price': 6.5,
+    'price': 8.5,
     'description':
       'Sommerrolle mit Reisnudeln, geriebenen Möhren, Gurke, Mango, Kräutern, Hoisinsauce und Ingwer',
   },
@@ -13,7 +13,7 @@ let mainDishes = [
   },
   {
     'name': 'Knusprige Wantan',
-    'price': 6.5,
+    'price': 9.5,
     'description': 'Garnelen, Kartoffeln, Gemüse und hausgemachter Sauce',
   },
   {

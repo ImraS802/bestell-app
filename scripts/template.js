@@ -3,7 +3,7 @@ function getHTMLForMainDishTemplate(indexMainDish) {
     <div class="food_card">
         <div class="name_plus_btn_container">
             <h3 class="name">${mainDishes[indexMainDish].name}</h3>
-            <button class="add_to_basket_btn" onclick="addProductToBasket${indexMainDish}"><img class="plus_symbol" src="../assets/icons/plus.svg"
+            <button class="add_to_basket_btn" id="addToBasket" onclick="addProductToBasket(${indexMainDish})"><img class="plus_symbol" src="../assets/icons/plus.svg"
                     alt="Fuege Produkt hinzu Pluszeichen" /></button>
         </div>
         <div class="description">${mainDishes[indexMainDish].description}</div>
@@ -21,20 +21,21 @@ function getHTMLForShoppingCartEmpty() {
 `;
 }
 
-function getHTMLForShoppingCartFull(indexMainDish) {
+function getHTMLForShoppingCartFull(i, totalPrice) {
   return `
+    <h2 class="headline_shopping_cart">Warenkorb</h2>
     <div class="shopping_cart_full">
-      <h2 class="headline_shopping_cart">Warenkorb</h2>
-        <div>${mainDishes[indexMainDish].name}</div>
+        <div>${cartMenus[i]}</div>
         <div>
-            <button class="delete_btn"><img class="plus_symbol" src="../assets/icons/minus.svg"
+            <button class="delete_btn" onclick="decreaseAmount(${i})"><img class="plus_symbol" src="../assets/icons/minus.svg"
                     alt="Entfernen Button" /></button>
-            <span class="display_amount" id="amount_product"></span>
-            <button class="add_btn"><img class="plus_symbol" src="../assets/icons/plus.svg"
+            <span class="display_amount" id="amount_product">${cartAmounts[i]}</span>
+            <button class="add_btn" onclick="increaseAmount(${i})"><img class="plus_symbol" src="../assets/icons/plus.svg"
                     alt="Hinzufuegen Button" /></button>
         </div>
-    </div>
-    <span class="display_price" id="price_product"></span>
-    <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
+    <span class="display_price" id="price_product">${totalPrice}</span>
+     <button onclick="removeItem(${i})">
+     <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
+     </button>
     </div>`;
 }
