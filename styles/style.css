@@ -47,12 +47,9 @@ main {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    /* space between content and cart */
     width: 100%;
     max-width: 1440px;
-    /* keep limitation on big screens */
     margin: 0 auto;
-    /* center inside page */
     background-color: #fff;
 }
 
