@@ -39,3 +39,32 @@ function getHTMLForShoppingCartFull(i, totalPrice) {
         </div>
     </div>`;
 }
+
+function getHTMLForCartSummary(subtotal, deliveryFee) {
+  const total = subtotal + deliveryFee;
+  return `
+    <div class="cart_summary">
+        <div class="cart_subtotal">
+          <span>Zwischensumme:</span>
+          <span>${subtotal.toFixed(2).replace('.', ',')} €</span>
+        </div>
+        <div class="cart_delivery">
+          <span>Lieferkosten:</span>
+          <span>${deliveryFee.toFixed(2).replace('.', ',')} €</span>
+        </div>
+      </div>
+      <div class="cart_total">
+        <span>Gesamt:</span>
+        <span>${total.toFixed(2).replace('.', ',')} €</span>
+      </div>
+      <button class="order_btn" onclick="placeOrder()">Jetzt bestellen</button>
+  `;
+}
+
+function getHTMLForConfirmingOrderMessage() {
+  return `
+    <div class="shopping_cart_message">
+      Vielen Dank! Die Testbestellung war erfolgreich.
+    </div>
+  `;
+}

@@ -22,6 +22,26 @@ header {
     height: 30px;
 }
 
+.content_wrapper {
+    gap: 2px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.shopping_cart_wrapper {
+    width: 300px;
+    flex-shrink: 0;
+    padding: 16px;
+    border: 1px solid #E7E7E7;
+}
+
+.main_wrapper {
+    flex: 1;
+    padding: 16px;
+}
+
 main {
     display: flex;
     justify-content: space-between;
@@ -36,34 +56,23 @@ main {
     background-color: #fff;
 }
 
-.main_content_limitation {
+.main_content {
     flex: 1;
-    max-width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-.content {
-    flex: 3;
-}
-
 .shopping_cart {
     position: sticky;
-    top: 64px;
-    /* height of your header (adjust if needed) */
+    /* top: 64px; */
+    top: 0;
     right: 0;
     bottom: 0;
-    width: 300px;
+    width: 100%;
     min-width: 250px;
     max-width: 350px;
-    padding: 0;
-
-    border: 1px solid #E7E7E7;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
     background: #fff;
-    /* scroll if content inside is taller */
     z-index: 1000;
     height: 550px;
 }
@@ -145,6 +154,7 @@ main {
 .hero_text_overlay {
     position: absolute;
     top: 110px;
+    max-width: 1440px;
 }
 
 .hero_img_split_1 {
