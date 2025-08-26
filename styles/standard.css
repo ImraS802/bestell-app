@@ -36,5 +36,9 @@ a {
     border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
-    width: 100%;
+    width: 900px;
+}
+
+.food_card:hover {
+    background-color: #E7E7E7;
 }
