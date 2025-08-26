@@ -1,6 +1,8 @@
-// TODO: add and remove fncts
+'use strict';
+// TODO: change dot to comma in calculation
+// TODO: check function length and outsource html template
 
-let cartMenus = [];
+let cartNames = [];
 let cartPrices = [];
 let cartAmounts = [];
 
@@ -35,10 +37,10 @@ function renderDessertDishes() {
 function addProductToBasket(indexMainDish) {
   // indexMainDish comes from template.js
   let dish = mainDishes[indexMainDish];
-  let index = cartMenus.indexOf(dish.name);
+  let index = cartNames.indexOf(dish.name);
 
   if (index === -1) {
-    cartMenus.push(dish.name);
+    cartNames.push(dish.name);
     cartPrices.push(dish.price);
     cartAmounts.push(1);
   } else {
@@ -49,10 +51,10 @@ function addProductToBasket(indexMainDish) {
 
 function addDessertToBasket(indexDessert) {
   let dish = dessertDishes[indexDessert];
-  let index = cartMenus.indexOf(dish.name);
+  let index = cartNames.indexOf(dish.name);
 
   if (index === -1) {
-    cartMenus.push(dish.name);
+    cartNames.push(dish.name);
     cartPrices.push(dish.price);
     cartAmounts.push(1);
   } else {
@@ -65,7 +67,7 @@ function renderShoppingCart() {
   let cartDiv = document.getElementById('shopping_cart');
   cartDiv.innerHTML = '';
 
-  if (cartMenus.length === 0) {
+  if (cartNames.length === 0) {
     cartDiv.innerHTML = getHTMLForShoppingCartEmpty();
     return;
   }
@@ -75,7 +77,7 @@ function renderShoppingCart() {
   let subtotal = 0;
   let deliveryFee = 5.0;
 
-  for (let i = 0; i < cartMenus.length; i++) {
+  for (let i = 0; i < cartNames.length; i++) {
     let totalPrice = (cartPrices[i] * cartAmounts[i]).toFixed(2);
     subtotal += cartPrices[i] * cartAmounts[i];
     cartDiv.innerHTML += getHTMLForShoppingCartFull(i, totalPrice);
@@ -98,6 +100,20 @@ function renderShoppingCart() {
       <span>Gesamt:</span>
       <span>${total.toFixed(2)} €</span>
     </div>
+    <button class="order_btn" onclick="placeOrder()">Jetzt bestellen</button>
+  `;
+}
+
+function placeOrder() {
+  cartNames = [];
+  cartPrices = [];
+  cartAmounts = [];
+
+  let cartDiv = document.getElementById('shopping_cart');
+  cartDiv.innerHTML = `
+    <div class="shopping_cart_message">
+      Vielen Dank! Die Testbestellung war erfolgreich.
+    </div>
   `;
 }
 
@@ -116,7 +132,7 @@ function decreaseAmount(i) {
 }
 
 function removeItem(i) {
-  cartMenus.splice(i, 1);
+  cartNames.splice(i, 1);
   cartPrices.splice(i, 1);
   cartAmounts.splice(i, 1);
   renderShoppingCart();

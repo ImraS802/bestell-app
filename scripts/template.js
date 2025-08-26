@@ -42,7 +42,7 @@ function getHTMLForShoppingCartEmpty() {
 function getHTMLForShoppingCartFull(i, totalPrice) {
   return `
     <div class="shopping_cart_full">
-        <div class="names_shopping_cart">${cartMenus[i]}</div>
+        <div class="names_shopping_cart">${cartNames[i]}</div>
         <div class="amount_price">
             <button class="delete_btn" onclick="decreaseAmount(${i})"><img class="plus_symbol"
                     src="../assets/icons/minus.svg" alt="Entfernen Button" /></button>
