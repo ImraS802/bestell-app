@@ -1,31 +1,15 @@
-function getHTMLForDishTemplate(indexMainDish) {
+function getHTMLForDishTemplate(category, index) {
+  let dish = menu[category][index];
   return `
     <div class="food_card">
         <div class="name_plus_btn_container">
-            <h3 class="name">${mainDishes[indexMainDish].name}</h3>
-            <button class="add_to_basket_btn" id="addToBasket" onclick="addProductToBasket(${indexMainDish})"><img
-                    class="plus_symbol" src="../assets/icons/plus.svg" alt="Fuege Produkt hinzu Pluszeichen" /></button>
-        </div>
-        <div class="description">${mainDishes[indexMainDish].description}</div>
-        <div class="price">${mainDishes[indexMainDish].price.toFixed(2)} €</div>
-    </div>`;
-}
-
-function getHTMLForDessertTemplate(indexDessert) {
-  return `
-    <div class="food_card">
-        <div class="name_plus_btn_container">
-            <h3 class="name">${dessertDishes[indexDessert].name}</h3>
-            <button class="add_to_basket_btn" onclick="addDessertToBasket(${indexDessert})">
-                <img class="plus_symbol" src="../assets/icons/plus.svg" alt="Fuege Dessert hinzu" />
+            <h3 class="name">${dish.name}</h3>
+            <button class="add_to_basket_btn" onclick="addToBasket('${category}', ${index})">
+                <img class="plus_symbol" src="../assets/icons/plus.svg" alt="Add Button" />
             </button>
         </div>
-        <div class="description">${
-          dessertDishes[indexDessert].description
-        }</div>
-        <div class="price">${dessertDishes[indexDessert].price.toFixed(
-          2
-        )} €</div>
+        <div class="description">${dish.description}</div>
+        <div class="price">${dish.price.toFixed(2)} €</div>
     </div>`;
 }
 
@@ -35,8 +19,7 @@ function getHTMLForShoppingCartEmpty() {
         <img class="shopping_cart_img" src="../assets/icons/shopping-basket.png" alt="Warenkorb Icon" />
         <p class="fill_empty_basket_headline">Fülle deinen Warenkorb</p>
         <p>Dein Warenkorb ist leer</p>
-    </div>
-`;
+    </div>`;
 }
 
 function getHTMLForShoppingCartFull(i, totalPrice) {
@@ -46,10 +29,10 @@ function getHTMLForShoppingCartFull(i, totalPrice) {
         <div class="amount_price">
             <button class="delete_btn" onclick="decreaseAmount(${i})"><img class="plus_symbol"
                     src="../assets/icons/minus.svg" alt="Entfernen Button" /></button>
-            <span class="display_amount" id="amount_product">${cartAmounts[i]}</span>
+            <span class="display_amount">${cartAmounts[i]}</span>
             <button class="add_btn" onclick="increaseAmount(${i})"><img class="plus_symbol"
                     src="../assets/icons/plus.svg" alt="Hinzufuegen Button" /></button>
-            <span class="display_price" id="price_product">${totalPrice}</span>
+            <span class="display_price">${totalPrice} €</span>
             <button onclick="removeItem(${i})">
                 <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
             </button>

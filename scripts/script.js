@@ -6,63 +6,40 @@ let cartNames = [];
 let cartPrices = [];
 let cartAmounts = [];
 
+// Runs automatically when page loads
 function init() {
-  renderMainDishes();
-  renderDessertDishes();
+  renderDishes('mainDishes', 'main_content');
+  renderDishes('dessertDishes', 'dessert_content');
+  renderDishes('starterDishes', 'starter_content');
   renderShoppingCart();
 }
 
-function renderMainDishes() {
-  let mainDishRef = document.getElementById('content');
-  mainDishRef.innerHTML = '';
+// Generic renderer: takes category ("mains", "desserts", "starters") + containerId
+function renderDishes(category, containerId) {
+  let container = document.getElementById(containerId);
+  container.innerHTML = '';
 
-  for (let i = 0; i < mainDishes.length; i++) {
-    renderSingleMainDish(mainDishRef, i);
+  for (let i = 0; i < menu[category].length; i++) {
+    container.innerHTML += getHTMLForDishTemplate(category, i);
   }
 }
 
-function renderSingleMainDish(mainDishRef, index) {
-  mainDishRef.innerHTML += getHTMLForDishTemplate(index);
-}
+// Add dish to basket
+function addToBasket(category, index) {
+  let dish = menu[category][index];
+  let cartIndex = cartNames.indexOf(dish.name);
 
-function renderDessertDishes() {
-  let dessertDishRef = document.getElementById('dessert_content');
-  dessertDishRef.innerHTML = '';
-
-  for (let i = 0; i < dessertDishes.length; i++) {
-    dessertDishRef.innerHTML += getHTMLForDessertTemplate(i);
-  }
-}
-
-function addProductToBasket(indexMainDish) {
-  // indexMainDish comes from template.js
-  let dish = mainDishes[indexMainDish];
-  let index = cartNames.indexOf(dish.name);
-
-  if (index === -1) {
+  if (cartIndex === -1) {
     cartNames.push(dish.name);
     cartPrices.push(dish.price);
     cartAmounts.push(1);
   } else {
-    cartAmounts[index] += 1;
+    cartAmounts[cartIndex]++;
   }
   renderShoppingCart();
 }
 
-function addDessertToBasket(indexDessert) {
-  let dish = dessertDishes[indexDessert];
-  let index = cartNames.indexOf(dish.name);
-
-  if (index === -1) {
-    cartNames.push(dish.name);
-    cartPrices.push(dish.price);
-    cartAmounts.push(1);
-  } else {
-    cartAmounts[index] += 1;
-  }
-  renderShoppingCart();
-}
-
+// Render shopping cart
 function renderShoppingCart() {
   let cartDiv = document.getElementById('shopping_cart');
   cartDiv.innerHTML = '';
@@ -86,24 +63,25 @@ function renderShoppingCart() {
   let total = subtotal + deliveryFee;
 
   cartDiv.innerHTML += `
-  <div class="cart_summary">
-      <div class="cart_subtotal">
-        <span>Zwischensumme:</span>
-        <span>${subtotal.toFixed(2)} €</span>
+    <div class="cart_summary">
+        <div class="cart_subtotal">
+          <span>Zwischensumme:</span>
+          <span>${subtotal.toFixed(2)} €</span>
+        </div>
+        <div class="cart_delivery">
+          <span>Lieferkosten:</span>
+          <span>${deliveryFee.toFixed(2)} €</span>
+        </div>
       </div>
-      <div class="cart_delivery">
-        <span>Lieferkosten:</span>
-        <span>${deliveryFee.toFixed(2)} €</span>
+      <div class="cart_total">
+        <span>Gesamt:</span>
+        <span>${total.toFixed(2)} €</span>
       </div>
-    </div>
-    <div class="cart_total">
-      <span>Gesamt:</span>
-      <span>${total.toFixed(2)} €</span>
-    </div>
-    <button class="order_btn" onclick="placeOrder()">Jetzt bestellen</button>
+      <button class="order_btn" onclick="placeOrder()">Jetzt bestellen</button>
   `;
 }
 
+// Bestellung abschließen
 function placeOrder() {
   cartNames = [];
   cartPrices = [];
@@ -117,6 +95,7 @@ function placeOrder() {
   `;
 }
 
+// Menge ändern
 function increaseAmount(i) {
   cartAmounts[i]++;
   renderShoppingCart();
