@@ -530,6 +530,12 @@ footer {
     .navigation_links.show {
         display: flex;
     }
+
+    .add_to_basket_btn:hover {
+        background-color: hwb(36 38% 4% / 0.966);
+        transform: scale(1.05);
+        transition: all 0.2s ease;
+    }
 }
 
 @media (max-width: 610px) {

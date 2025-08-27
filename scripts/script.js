@@ -1,5 +1,4 @@
 'use strict';
-// TODO: check function length and outsource html template
 
 let cartNames = [];
 let cartPrices = [];
@@ -37,26 +36,49 @@ function addToBasket(category, index) {
 }
 
 function renderShoppingCart() {
-  let cartDiv = document.getElementById('shopping_cart');
+  renderCartRegularOrMobile('shopping_cart');
+  renderCartRegularOrMobile('mobile_shopping_cart');
+}
+
+function renderCartRegularOrMobile(containerId) {
+  let cartDiv = document.getElementById(containerId);
+  if (!cartDiv) return;
+
   cartDiv.innerHTML = '';
 
   if (cartNames.length === 0) {
-    cartDiv.innerHTML = getHTMLForShoppingCartEmpty();
+    renderEmptyCart(cartDiv);
     return;
   }
 
+  renderCartHeader(cartDiv);
+  renderCartItems(cartDiv);
+  renderCartSummary(cartDiv);
+}
+
+function renderEmptyCart(cartDiv) {
+  cartDiv.innerHTML = getHTMLForShoppingCartEmpty();
+}
+
+function renderCartHeader(cartDiv) {
   cartDiv.innerHTML = '<h2 class="headline_shopping_cart">Warenkorb</h2>';
+}
 
-  let subtotal = 0;
-  let deliveryFee = 5.0;
-
+function renderCartItems(cartDiv) {
   for (let i = 0; i < cartNames.length; i++) {
     let totalPrice = (cartPrices[i] * cartAmounts[i])
       .toFixed(2)
       .replace('.', ',');
-    subtotal += cartPrices[i] * cartAmounts[i];
     cartDiv.innerHTML += getHTMLForShoppingCartFull(i, totalPrice);
   }
+}
+
+function renderCartSummary(cartDiv) {
+  let subtotal = cartPrices.reduce(
+    (sum, price, i) => sum + price * cartAmounts[i],
+    0
+  );
+  let deliveryFee = 5.0;
 
   cartDiv.innerHTML += getHTMLForCartSummary(subtotal, deliveryFee);
 }
@@ -65,6 +87,8 @@ function placeOrder() {
   cartNames = [];
   cartPrices = [];
   cartAmounts = [];
+
+  renderShoppingCart();
 
   let cartDiv = document.getElementById('shopping_cart');
   cartDiv.innerHTML = getHTMLForConfirmingOrderMessage();
@@ -103,10 +127,6 @@ function toggleBurgerMenu() {
 
 function showMobileShoppingCart() {
   const modal = document.getElementById('mobileCartModal');
-  const mobileCart = document.getElementById('mobile_shopping_cart');
-
-  mobileCart.innerHTML = document.getElementById('shopping_cart').innerHTML;
-
   modal.style.display = 'flex'; // show modal
 }
 
