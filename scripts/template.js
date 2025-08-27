@@ -24,6 +24,7 @@ function getHTMLForShoppingCartEmpty() {
 
 function getHTMLForShoppingCartFull(i, totalPrice) {
   return `
+  <div class="shopping_cart_full_container">
     <div class="shopping_cart_full">
         <div class="names_shopping_cart">${cartNames[i]}</div>
         <div class="amount_price">
@@ -37,7 +38,8 @@ function getHTMLForShoppingCartFull(i, totalPrice) {
                 <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
             </button>
         </div>
-    </div>`;
+    </div>
+  </div>`;
 }
 
 function getHTMLForCartSummary(subtotal, deliveryFee) {

@@ -68,6 +68,12 @@ function placeOrder() {
 
   let cartDiv = document.getElementById('shopping_cart');
   cartDiv.innerHTML = getHTMLForConfirmingOrderMessage();
+
+  const modal = document.getElementById('mobileCartModal');
+  const mobileCart = document.getElementById('mobile_shopping_cart');
+  if (modal.style.display === 'flex') {
+    mobileCart.innerHTML = cartDiv.innerHTML;
+  }
 }
 
 function increaseAmount(i) {
@@ -91,20 +97,14 @@ function removeItem(i) {
   renderShoppingCart();
 }
 
-function toggleMenu() {
+function toggleBurgerMenu() {
   document.querySelector('.navigation_links').classList.toggle('show');
 }
-
-// shopping cart mobile
-// function showMobileShoppingCart() {
-//   document.getElementById('mobile_btn').classList.toggle('shopping_cart');
-// }
 
 function showMobileShoppingCart() {
   const modal = document.getElementById('mobileCartModal');
   const mobileCart = document.getElementById('mobile_shopping_cart');
 
-  // Render the shopping cart content into the modal
   mobileCart.innerHTML = document.getElementById('shopping_cart').innerHTML;
 
   modal.style.display = 'flex'; // show modal

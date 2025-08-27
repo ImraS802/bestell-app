@@ -21,7 +21,20 @@
     <div class="content_limitation">
         <header id="header">
             <div class="header_content">
-                <img class="logo" src="../assets/icons/logo.png" alt="Bestell App Logo" />
+                <div class="logo_wrapper">
+                    <img class="logo" src="../assets/icons/logo.png" alt="Bestell App Logo" />
+                </div>
+                <div class="burger_wrapper"><button class="burger" onclick="toggleBurgerMenu()">☰</button>
+                    <nav class="navigation" id="nav_Menu">
+                        <div class="navigation_links">
+                            <span class="close_burger" onclick="toggleBurgerMenu()">&times;</span>
+                            <img class="arrow" src="../assets/icons/double_arrow_right.png" alt="Orangener Pfeil" />
+                            <a href="#vorspeisen">Vorspeisen</a>
+                            <a href="#hauptgerichte">Hauptgerichte</a>
+                            <a href="#desserts">Desserts</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
     </div>
     <div class="hero_img">
@@ -29,11 +42,10 @@
         <div class="hero_text_overlay">
             <h1>Hanoi Treasures</h1>
             <p class="rating">Bewertung (4,2 von 5 Sternen)</p>
-            <button class="burger" onclick="toggleMenu()">☰</button>
             <nav class="navigation" id="nav_Menu">
                 <div class="navigation_links">
+                    <span class="close_burger" onclick="toggleBurgerMenu()">&times;</span>
                     <img class="arrow" src="../assets/icons/double_arrow_right.png" alt="Orangener Pfeil" />
-
                     <a href="#vorspeisen">Vorspeisen</a>
                     <a href="#hauptgerichte">Hauptgerichte</a>
                     <a href="#desserts">Desserts</a>

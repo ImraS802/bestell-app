@@ -4,12 +4,19 @@
     background-color: #ff8000;
 }
 
+.burger_wrapper {
+    display: none;
+}
+
 header {
-    display: flex;
-    justify-content: flex-start;
     padding: 5px 10px;
     width: 100%;
     max-width: 1440px;
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
@@ -20,6 +27,12 @@ header {
 .logo_footer {
     width: auto;
     height: 30px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .content_wrapper {
@@ -36,11 +49,12 @@ header {
     margin-right: 0;
     display: flex;
     justify-content: flex-end;
+    border: 1px solid #E7E7E7;
 }
 
 .main_wrapper {
     flex: 1;
-    padding: 16px;
+    padding: 0 16px;
 }
 
 .main_container {
@@ -62,15 +76,13 @@ header {
 
 .shopping_cart {
     position: sticky;
-    border: 1px solid #E7E7E7;
     top: 0;
     align-self: flex-start;
     width: 300px;
-    overflow-y: auto;
     background: #fff;
     overflow-x: hidden;
     box-sizing: border-box;
-    padding-bottom: 463px;
+    height: 100vh;
 }
 
 .shopping_cart_img {
@@ -84,6 +96,10 @@ header {
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
+}
+
+.shopping_cart_full_container {
+    overflow-y: auto;
 }
 
 .shopping_cart_full {
@@ -160,7 +176,7 @@ header {
     background-size: cover;
     height: 70px;
     width: 100%;
-    margin-top: 270px;
+    margin-top: 280px;
 }
 
 .hero_img_split_2 {
@@ -182,7 +198,6 @@ header {
     padding: 0;
 }
 
-
 .bowl_img_middle {
     background-color: #f8f8f8;
     position: absolute;
@@ -196,6 +211,20 @@ header {
     width: 90px;
     object-fit: cover;
     background-repeat: no-repeat;
+}
+
+.food_card {
+    border: 1px solid #E7E7E7;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.food_card:hover {
+    background-color: #E7E7E7;
 }
 
 .add_to_basket_btn {
@@ -236,13 +265,13 @@ header {
 }
 
 h1 {
-    margin: 40px 0 10px 10px;
+    margin: 40px 0 10px 0;
     padding-top: 10px;
     font-size: 26px;
 }
 
 h2 {
-    margin: 200px 0 20px 10px;
+    margin: 240px 0 20px 10px;
 }
 
 .dessert_headline {
@@ -250,12 +279,22 @@ h2 {
 }
 
 .starters_headline {
-    margin-top: 80px;
+    margin: 40px 0 20px 10px;
 }
 
 .name_plus_btn_container {
     display: flex;
     justify-content: space-between;
+}
+
+.close_burger {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 10px;
 }
 
 .navigation {
@@ -266,7 +305,15 @@ h2 {
 
 .navigation_links {
     display: flex;
+    align-items: center;
     gap: 20px;
+}
+
+.navigation_links .arrow {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: 0 auto 0;
 }
 
 .navigation_links a:active,
@@ -371,19 +418,20 @@ footer {
     width: 100%;
 }
 
-
 .shopping_cart_container {
     position: sticky;
     top: 0;
 }
 
 .burger {
-    display: none;
+    top: 10px;
+    right: 10px;
     font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
+    z-index: 1001;
+    padding-right: 20px;
 }
 
 .modal {
@@ -423,7 +471,7 @@ footer {
 }
 
 @media (max-width: 1650px) {
-    .header_content {
+    .logo_wrapper {
         margin: 0 0 0 20px;
     }
 }
@@ -439,15 +487,28 @@ footer {
         display: none;
     }
 
+    h2 {
+        margin: 230px 0 20px 10px;
+    }
+
     .shopping_cart.show {
         display: block;
     }
 
     .show_cart_btn_mobile {
         display: block;
+        margin-top: 20px;
     }
 
-    .burger {
+    .hero_text_overlay {
+        top: 130px;
+    }
+
+    .burger_wrapper {
+        display: flex;
+    }
+
+    .close_burger {
         display: block;
     }
 
@@ -455,8 +516,8 @@ footer {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 20px;
+        top: 40px;
+        right: 10px;
         background: white;
         border: 1px solid #E7E7E7;
         border-radius: 8px;
@@ -469,7 +530,6 @@ footer {
     .navigation_links.show {
         display: flex;
     }
-
 }
 
 @media (max-width: 610px) {
@@ -484,7 +544,6 @@ footer {
 
     h2 {
         text-align: center;
-        margin: 220px 0 20px 10px;
     }
 
     .hero_img_split_1 {
