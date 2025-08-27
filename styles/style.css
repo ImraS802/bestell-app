@@ -33,8 +33,9 @@ header {
 .shopping_cart_wrapper {
     width: 300px;
     flex-shrink: 0;
-    padding: 16px;
-    border: 1px solid #E7E7E7;
+    margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .main_wrapper {
@@ -42,13 +43,12 @@ header {
     padding: 16px;
 }
 
-main {
+.main_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
     width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
     background-color: #fff;
 }
@@ -62,16 +62,15 @@ main {
 
 .shopping_cart {
     position: sticky;
-    /* top: 64px; */
+    border: 1px solid #E7E7E7;
     top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    min-width: 250px;
-    max-width: 350px;
+    align-self: flex-start;
+    width: 300px;
+    overflow-y: auto;
     background: #fff;
-    z-index: 1000;
-    height: 550px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-bottom: 463px;
 }
 
 .shopping_cart_img {
@@ -152,6 +151,7 @@ main {
     position: absolute;
     top: 110px;
     max-width: 1440px;
+    margin-left: 10px;
 }
 
 .hero_img_split_1 {
@@ -159,10 +159,8 @@ main {
     background-position: center bottom;
     background-size: cover;
     height: 70px;
-    /* bottom strip */
     width: 100%;
     margin-top: 270px;
-    /* creates overlap effect */
 }
 
 .hero_img_split_2 {
@@ -170,14 +168,25 @@ main {
     background-position: center bottom;
     background-size: cover;
     height: 70px;
-    width: 100vw;
+    width: 100%;
     margin-top: 40px;
 }
+
+.hero_img_split_3 {
+    background-image: url(../assets/img/hero_3.png);
+    background-position: center bottom;
+    background-size: cover;
+    height: 70px;
+    width: 100%;
+    margin: 40px 0 0 0 0;
+    padding: 0;
+}
+
 
 .bowl_img_middle {
     background-color: #f8f8f8;
     position: absolute;
-    top: 90px;
+    bottom: -35px;
     /* overlap slightly below hero image */
     left: 50%;
     /* center horizontally */
@@ -240,6 +249,10 @@ h2 {
     margin-top: 40px;
 }
 
+.starters_headline {
+    margin-top: 80px;
+}
+
 .name_plus_btn_container {
     display: flex;
     justify-content: space-between;
@@ -256,6 +269,12 @@ h2 {
     gap: 20px;
 }
 
+.navigation_links a:active,
+.navigation_links a:focus,
+.navigation_links a:hover {
+    color: #ff8000;
+}
+
 .rating {
     margin-left: 10px;
     color: #ff8000;
@@ -267,7 +286,7 @@ h2 {
 }
 
 .content_footer {
-    margin-top: 50px;
+    margin-top: 25px;
     width: 100%;
     background-color: #ff8000;
     display: flex;
@@ -317,4 +336,118 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mobile_btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.mobile_btn_text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.show_cart_btn_mobile {
+    padding: 20px 60px;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 206, 206);
+    background-color: #ff8000;
+    cursor: pointer;
+}
+
+.show_cart_btn_mobile:hover {
+    background-color: #ee9d4c;
+}
+
+.d_none {
+    display: none;
+}
+
+.show {
+    display: block;
+    width: 100%;
+}
+
+
+.shopping_cart_container {
+    position: sticky;
+    top: 0;
+}
+
+.burger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@media (max-width: 1650px) {
+    .header_content {
+        margin: 0 0 0 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .starters_headline {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+    .shopping_cart_container {
+        display: none;
+    }
+
+    .shopping_cart.show {
+        display: block;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .navigation_links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        border: 1px solid #E7E7E7;
+        border-radius: 8px;
+        padding: 10px;
+        width: 180px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .navigation_links.show {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 610px) {
+    .bowl_img_middle {
+        width: 70px;
+    }
+
+    .hero_text_overlay {
+        top: 140px;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 220px 0 20px 10px;
+    }
+
+    .hero_img_split_1 {
+        margin-top: 300px;
+    }
+
 }

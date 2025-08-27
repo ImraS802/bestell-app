@@ -1,5 +1,3 @@
-/* reset / base styles. This ensures consistency across browsers */
-/* Reset margins & paddings */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,7 +13,6 @@ body {
 }
 
 body {
-    background-color: #fafafa;
     color: black;
     display: flex;
     flex-direction: column;
@@ -32,8 +29,10 @@ a {
     margin: 0 0 10px 10px;
     border-radius: 5px;
     padding: 10px;
+    width: 100%;
     box-sizing: border-box;
-    width: 900px;
+    display: flex;
+    flex-direction: column;
 }
 
 .food_card:hover {

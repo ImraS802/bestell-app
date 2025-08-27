@@ -90,3 +90,13 @@ function removeItem(i) {
   cartAmounts.splice(i, 1);
   renderShoppingCart();
 }
+
+function toggleMenu() {
+  document.querySelector('.navigation_links').classList.toggle('show');
+}
+
+// shopping cart mobile
+function showMobileShoppingCart() {
+  document.getElementById('').classList.toggle('d_none');
+  document.getElementById('').classList.toggle('d_none');
+}

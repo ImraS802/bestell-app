@@ -29,12 +29,14 @@
         <div class="hero_text_overlay">
             <h1>Hanoi Treasures</h1>
             <p class="rating">Bewertung (4,2 von 5 Sternen)</p>
-            <nav class="navigation">
-                <img class="arrow" src="../assets/icons/double_arrow_right.png" alt="Orangener Pfeil" />
+            <button class="burger" onclick="toggleMenu()">☰</button>
+            <nav class="navigation" id="nav_Menu">
                 <div class="navigation_links">
-                    <a href="#">Vorspeisen</a>
-                    <a href="#">Hauptgerichte</a>
-                    <a href="#">Desserts</a>
+                    <img class="arrow" src="../assets/icons/double_arrow_right.png" alt="Orangener Pfeil" />
+
+                    <a href="#vorspeisen">Vorspeisen</a>
+                    <a href="#hauptgerichte">Hauptgerichte</a>
+                    <a href="#desserts">Desserts</a>
                 </div>
             </nav>
         </div>
@@ -43,23 +45,37 @@
     </header>
 
     <main>
-        <div class="main_content">
-            <div class="content_wrapper">
-                <div class="main_wrapper">
-                    <h2>Hauptgerichte</h2>
-                    <div class="content" id="main_content"></div>
-                    <div class="hero_img_split_2"></div>
-                    <h2 class="dessert_headline">Desserts</h2>
-                    <div class="content" id="dessert_content"></div>
-                    <h2 class="dessert_headline">Vorspeisen</h2>
-                    <div class="content" id="starter_content"></div>
+        <div class="main_container">
+            <div class="main_content">
+                <div class="content_wrapper">
+                    <div class="main_wrapper">
+                        <section id="hauptgerichte" class="main_dishes">
+                            <h2>Hauptgerichte</h2>
+                            <div class="content" id="main_content"></div>
+                        </section>
+                        <div class="hero_img_split_2"></div>
+                        <section id="vorspeisen" class="starter_dishes">
+                            <h2 class="starters_headline">Vorspeisen</h2>
+                            <div class="content" id="starter_content"></div>
+                        </section>
+                        <div class="hero_img_split_3"></div>
+                        <section id="desserts" class="dessert_dishes">
+                            <h2 class="dessert_headline">Desserts</h2>
+                            <div class="content" id="dessert_content"></div>
+                        </section>
+                    </div>
                 </div>
             </div>
+            <section class="shopping_cart_container">
+                <div class="shopping_cart_wrapper">
+                    <div class="shopping_cart" id="shopping_cart"></div>
+                </div>
+            </section>
         </div>
-        <div class="shopping_cart_wrapper">
-            <div class="shopping_cart" id="shopping_cart"></div>
+        <div class="mobile_btn">
+            <button class="show_cart_btn_mobile" onclick="showMobileShoppingCart()"><span
+                    class="mobile_btn_text">Warenkorb</span></button>
         </div>
-
     </main>
 
     <div class="content_footer">

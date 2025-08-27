@@ -58,6 +58,13 @@ function getHTMLForCartSummary(subtotal, deliveryFee) {
         <span>${total.toFixed(2).replace('.', ',')} €</span>
       </div>
       <button class="order_btn" onclick="placeOrder()">Jetzt bestellen</button>
+
+<div id="cart-overlay" class="cart-overlay">
+    <div class="cart-dialog">
+        <button id="close-cart" class="close-cart">×</button>
+        <div id="responsive_cart"></div>
+    </div>
+</div>
   `;
 }
 
