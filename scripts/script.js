@@ -96,7 +96,20 @@ function toggleMenu() {
 }
 
 // shopping cart mobile
+// function showMobileShoppingCart() {
+//   document.getElementById('mobile_btn').classList.toggle('shopping_cart');
+// }
+
 function showMobileShoppingCart() {
-  document.getElementById('').classList.toggle('d_none');
-  document.getElementById('').classList.toggle('d_none');
+  const modal = document.getElementById('mobileCartModal');
+  const mobileCart = document.getElementById('mobile_shopping_cart');
+
+  // Render the shopping cart content into the modal
+  mobileCart.innerHTML = document.getElementById('shopping_cart').innerHTML;
+
+  modal.style.display = 'flex'; // show modal
+}
+
+function closeMobileCart() {
+  document.getElementById('mobileCartModal').style.display = 'none';
 }

@@ -72,11 +72,18 @@
                 </div>
             </section>
         </div>
-        <div class="mobile_btn">
+        <div class="mobile_btn" id="mobile_btn">
             <button class="show_cart_btn_mobile" onclick="showMobileShoppingCart()"><span
                     class="mobile_btn_text">Warenkorb</span></button>
         </div>
     </main>
+
+    <div id="mobileCartModal" class="modal d_none">
+        <div class="modal_content">
+            <span class="close" onclick="closeMobileCart()">&times;</span>
+            <div id="mobile_shopping_cart"></div>
+        </div>
+    </div>
 
     <div class="content_footer">
         <footer>
