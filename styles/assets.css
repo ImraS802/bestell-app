@@ -12,7 +12,7 @@
 
 .hero_img {
     position: relative;
-    background-image: url(../assets/img/hero.jpg);
+    background-image: url(./assets/img/hero.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,7 +28,7 @@
 }
 
 .hero_img_split_1 {
-    background-image: url(../assets/img/hero.jpg);
+    background-image: url(./assets/img/hero.jpg);
     background-position: center bottom;
     background-size: cover;
     height: 70px;
@@ -37,7 +37,7 @@
 }
 
 .hero_img_split_2 {
-    background-image: url(../assets/img/hero_2.jpg);
+    background-image: url(./assets/img/hero_2.jpg);
     background-position: center bottom;
     background-size: cover;
     height: 70px;
@@ -46,7 +46,7 @@
 }
 
 .hero_img_split_3 {
-    background-image: url(../assets/img/hero_3.png);
+    background-image: url(./assets/img/hero_3.png);
     background-position: center bottom;
     background-size: cover;
     height: 70px;

@@ -5,7 +5,7 @@ function getHTMLForDishTemplate(category, index) {
         <div class="name_plus_btn_container">
             <h3 class="name">${dish.name}</h3>
             <button class="add_to_basket_btn" onclick="addToBasket('${category}', ${index})">
-                <img class="plus_symbol" src="../assets/icons/plus.svg" alt="Add Button" />
+                <img class="plus_symbol" src="./assets/icons/plus.svg" alt="Add Button" />
             </button>
         </div>
         <div class="description">${dish.description}</div>
@@ -16,7 +16,7 @@ function getHTMLForDishTemplate(category, index) {
 function getHTMLForShoppingCartEmpty() {
   return `
     <div class="shopping_cart_empty">
-        <img class="shopping_cart_img" src="../assets/icons/shopping-basket.png" alt="Warenkorb Icon" />
+        <img class="shopping_cart_img" src="./assets/icons/shopping-basket.png" alt="Warenkorb Icon" />
         <p class="fill_empty_basket_headline">Fülle deinen Warenkorb</p>
         <p>Dein Warenkorb ist leer</p>
     </div>`;
@@ -29,13 +29,13 @@ function getHTMLForShoppingCartFull(i, totalPrice) {
         <div class="names_shopping_cart">${cartNames[i]}</div>
         <div class="amount_price">
             <button class="delete_btn" onclick="decreaseAmount(${i})"><img class="plus_symbol"
-                    src="../assets/icons/minus.svg" alt="Entfernen Button" /></button>
+                    src="./assets/icons/minus.svg" alt="Entfernen Button" /></button>
             <span class="display_amount">${cartAmounts[i]}</span>
             <button class="add_btn" onclick="increaseAmount(${i})"><img class="plus_symbol"
-                    src="../assets/icons/plus.svg" alt="Hinzufuegen Button" /></button>
+                    src="./assets/icons/plus.svg" alt="Hinzufuegen Button" /></button>
             <span class="display_price">${totalPrice} €</span>
             <button onclick="removeItem(${i})">
-                <img class="plus_symbol" src="../assets/icons/trash-can.svg" alt="Loeschen Symbol" />
+                <img class="plus_symbol" src="./assets/icons/trash-can.svg" alt="Loeschen Symbol" />
             </button>
         </div>
     </div>
