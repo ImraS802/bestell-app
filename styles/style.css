@@ -147,6 +147,18 @@ header {
     margin: 10px 15px 15px 15px;
 }
 
+.delete_btn {
+    cursor: pointer;
+}
+
+.add_btn {
+    cursor: pointer;
+}
+
+.remove_btn {
+    cursor: pointer;
+}
+
 .fill_empty_basket_headline {
     font-weight: bold;
     font-size: 24px;
@@ -403,6 +415,8 @@ footer {
     border: 1px solid rgb(212, 206, 206);
     background-color: #ff8000;
     cursor: pointer;
+    position: fixed;
+    bottom: 0;
 }
 
 .show_cart_btn_mobile:hover {

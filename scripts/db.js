@@ -10,7 +10,7 @@ let menu = {
       name: 'Banh Mi Xiu Mai',
       price: 11.99,
       description:
-        'vietnamesisches Baguette mit Garnelenfleischbällchen, Tomaten, Lauchzwiebeln und Koriander',
+        'Vietnamesisches Baguette mit Garnelenfleischbällchen, Tomaten, Lauchzwiebeln und Koriander',
     },
     {
       name: 'Knusprige Wantan',
@@ -57,7 +57,7 @@ let menu = {
     {
       name: 'Ga Teriyaki',
       price: 6.5,
-      description: 'gegrillte Hähnchenspieße mit Teriyakisauce',
+      description: 'Gegrillte Hähnchenspieße mit Teriyakisauce',
     },
   ],
 

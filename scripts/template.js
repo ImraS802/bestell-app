@@ -34,7 +34,7 @@ function getHTMLForShoppingCartFull(i, totalPrice) {
             <button class="add_btn" onclick="increaseAmount(${i})"><img class="plus_symbol"
                     src="./assets/icons/plus.svg" alt="Hinzufuegen Button" /></button>
             <span class="display_price">${totalPrice} €</span>
-            <button onclick="removeItem(${i})">
+            <button class="remove_btn" onclick="removeItem(${i})">
                 <img class="plus_symbol" src="./assets/icons/trash-can.svg" alt="Loeschen Symbol" />
             </button>
         </div>
